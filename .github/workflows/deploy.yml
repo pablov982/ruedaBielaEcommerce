@@ -32,4 +32,4 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.SECRET_GITHUB_ECOMMERCE }}
           BRANCH: gh-pages
-          FOLDER: dist/ruedaBielaEcommerce
+          FOLDER: dist/rueda-biela-ecommerce
