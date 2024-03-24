@@ -31,5 +31,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.6
         with:
           ACCESS_TOKEN: ${{ secrets.SECRET_GITHUB_ECOMMERCE }}
-          BRANCH: gh-pages
+          BRANCH: master
           FOLDER: dist/rueda-biela-ecommerce
