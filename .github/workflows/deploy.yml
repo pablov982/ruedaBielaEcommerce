@@ -32,4 +32,4 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.SECRET_GITHUB_ECOMMERCE }}
           BRANCH: gh-pages
-          FOLDER: dist/my-angular-app
+          FOLDER: dist/ruedaBielaEcommerce
