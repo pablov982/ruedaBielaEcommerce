@@ -3,7 +3,7 @@ name: Despliegue en GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '14'
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
@@ -25,11 +25,11 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: ng build --configuration=production --base-href=/ruedaBielaEcommerce/
+        run: ng build --prod --base-href=/ruedaBielaEcommerce/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.6
         with:
           ACCESS_TOKEN: ${{ secrets.SECRET_GITHUB_ECOMMERCE }}
-          BRANCH: master
-          FOLDER: dist/rueda-biela-ecommerce
+          BRANCH: gh-pages
+          FOLDER: dist/my-angular-app
