@@ -1,0 +1,35 @@
+name: Despliegue en GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: ng build --prod --base-href=/ruedaBielaEcommerce/
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.6
+        with:
+          ACCESS_TOKEN: ${{ secrets.SECRET_GITHUB_ECOMMERCE }}
+          BRANCH: gh-pages
+          FOLDER: dist/my-angular-app
